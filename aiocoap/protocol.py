@@ -998,6 +998,10 @@ class Responder(object):
                 response.code = CONTENT
             if not response.code.is_response():
                 self.log.warning("Response does not carry response code (%r), application probably violates protocol."%response.code)
+                if response.code == EMPTY:
+                    cancel_thoroughly(delayed_ack)
+                    self.app_request.cancel()
+                    return
 
             self.handle_observe_response(request, response)
 
