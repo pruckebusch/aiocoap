@@ -26,7 +26,6 @@ extras_require = {
         'oscoap': ['hkdf', 'cbor', 'cffi'],
         'docs': ['sphinx', 'sphinx-argparse'], # extended below
         'all': [], # populated below, contains everything but documentation dependencies for easier installation
-        ':python_version<"3.4"': ['asyncio'],
         }
 tests_require = [] # populated below
 
